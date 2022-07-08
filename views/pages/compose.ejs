@@ -1,0 +1,36 @@
+<%- include('../partials/header') %>
+
+<h1 class="pagetitle">Compose</h1>
+
+<form id="postform" action="/compose" method="post">
+  <div class="form-group">
+    <label class="page-align"
+      >Title
+      <input
+        class="form-control"
+        name="posttitle"
+        type="text"
+        placeholder="Name your post"
+        required
+      />
+    </label>
+
+    <label class="page-align"
+      >Post
+      <textarea
+        class="form-control"
+        cols="40"
+        rows="5"
+        name="postbody"
+        type="text"
+        placeholder="What is in your mind?"
+        required
+      ></textarea>
+    </label>
+    <button class="btn-align btn btn-primary" name="button" type="submit">
+      Publish
+    </button>
+  </div>
+</form>
+
+<%- include('../partials/footer') %>
