@@ -2,9 +2,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const ejs = require('ejs')
-
-// scope variables
-let postedData = []
+const _ = require('lodash')
 
 // EJS files content export
 const homeContent =
@@ -15,6 +13,8 @@ const aboutContent =
 const contactContent =
   'Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.'
 
+const failureContent = 'The mind link could not be estabilished...'
+
 // start express and setup bodyParser
 const app = express()
 app.set('view engine', 'ejs')
@@ -23,7 +23,7 @@ app.use(express.static('public'))
 
 // GET 1 HOME
 app.get('/', function (req, res) {
-  res.render('pages/home', { startingContent: homeContent })
+  res.render('pages/home', { startingContent: homeContent, posts: posts })
 })
 
 // GET 2 ABOUT
@@ -41,13 +41,35 @@ app.get('/compose', function (req, res) {
   res.render('pages/compose')
 })
 
+// GET 5 POSTS (with Express route params for dynamic URL)
+app.get('/posts/:postId', function (req, res) {
+  const requestedTitle = _.lowerCase(req.params.postId)
+  posts.forEach(function (post) {
+    const storedTitle = _.lowerCase(post.title)
+    if (storedTitle === requestedTitle) {
+      res.render('pages/post', {
+        title: post.title,
+        content: post.content
+      })
+    } else {
+      res.render('pages/failure')
+    }
+  })
+  // GET 6 FAILURE
+  app.get('/failure', function (req, res) {
+    res.render('pages/failure', { startingContent: failureContent })
+  })
+})
+
 // POST
+let posts = []
+
 app.post('/compose', function (req, res) {
   const post = {
     title: req.body.posttitle,
     content: req.body.postbody
   }
-  postedData.push(post)
+  posts.push(post)
   res.redirect('/')
 })
 

@@ -4,4 +4,10 @@
 
 <p class="text page-align"><%= startingContent %></p>
 
-<%- include('../partials/footer') %>
+<% console.log(posts); %> <% posts.forEach(function(post) { %>
+<h1 class="pagetitle"><%= post.title %></h1>
+<p class="text page-align">
+  <%= post.content.substring(0, 100) + '...' %>
+  <a href="/posts/<%= post.title %>">Read More...</a>
+</p>
+<% let homepost = posts; %> <% }) %> <%- include('../partials/footer') %>
