@@ -1,0 +1,14 @@
+<%- include("../partials/header"); -%>
+
+<h1 class="pagetitle">Index</h1>
+<p class="text page-align"><%= startingContent %></p>
+
+<% console.log(posts); %> <% posts.forEach(function(post){ %>
+
+<h1 class="pagetitle"><%= post.title %></h1>
+<p class="text page-align">
+  <%=post.content.substring(0, 100) + " ..."%>
+  <a href="/posts/<%=post._id%>">Read More</a>
+</p>
+
+<% }) %> <%- include("../partials/footer"); -%>

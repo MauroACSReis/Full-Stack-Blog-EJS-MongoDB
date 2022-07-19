@@ -49,10 +49,23 @@
   height: fit-content;
 }
 
+#hometext {
+  color: snow;
+  margin-top: 30px;
+  opacity: 60%;
+  position: absolute;
+  z-index: 1;
+}
+
+#link {
+  height: 81vh;
+  width: 100%;
+}
+
 /* footer */
 
 .footer {
-  background-color: #1abc9c;
+  background-color: #588c7e;
   bottom: 0;
   height: 60px;
   position: fixed;

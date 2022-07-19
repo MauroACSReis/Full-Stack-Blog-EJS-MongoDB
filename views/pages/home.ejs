@@ -1,13 +1,9 @@
 <%- include('../partials/header') %>
 
-<h1 class="pagetitle">Home</h1>
+<p id="hometext" class="text page-align">You arrived at Index.</p>
 
-<p class="text page-align"><%= startingContent %></p>
+<img id="link"src="./assets/link.jpg"alt="background home image"></img>
 
-<% console.log(posts); %> <% posts.forEach(function(post) { %>
-<h1 class="pagetitle"><%= post.title %></h1>
-<p class="text page-align">
-  <%= post.content.substring(0, 100) + '...' %>
-  <a href="/posts/<%= post.title %>">Read More...</a>
-</p>
-<% let homepost = posts; %> <% }) %> <%- include('../partials/footer') %>
+<h1 class="pagetitle"></h1>
+
+<%- include('../partials/footer') %>
