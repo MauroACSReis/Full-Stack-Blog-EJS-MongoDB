@@ -12,7 +12,7 @@ const indexContent = 'See the opinion of others.'
 
 const failureContent = 'The mind link could not be estabilished...'
 
-// Start express and setup bodyParser
+// Start express and setup
 const app = express()
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
