@@ -1,4 +1,4 @@
-// jshint esversion:6
+//jshint esversion:6
 // require modules
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -12,7 +12,7 @@ const indexContent = 'See the opinion of others.'
 
 const failureContent = 'The mind link could not be estabilished...'
 
-// Start express and setup
+// Start Express and Setup
 const app = express()
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }))
