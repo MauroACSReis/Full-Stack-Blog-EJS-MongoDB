@@ -644,7 +644,7 @@ section p strong {
 
 @media only screen and (min-width: 1080px) {
   #description1 {
-    top: 10rem;
+    top: 10.5rem;
     left: 33rem;
     position: absolute;
     width: 25rem;
@@ -672,7 +672,7 @@ section p strong {
   }
 
   #description5 {
-    top: 82rem;
+    top: 82.3rem;
     left: 33rem;
     position: absolute;
     width: 25rem;
