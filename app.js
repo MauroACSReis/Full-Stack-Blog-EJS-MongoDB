@@ -44,7 +44,6 @@ const post = new Post({
   content: 'Testing and Debugging.'
 })
 post.save().then(() => console.log('post added'))
-
 mongoose.connection.close()
 */
 
@@ -95,7 +94,7 @@ app.post('/compose', function (req, res) {
 
   post.save(function (err) {
     if (!err) {
-      res.redirect('/')
+      res.redirect('/index')
     }
   })
 })
