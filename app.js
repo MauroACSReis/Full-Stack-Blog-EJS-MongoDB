@@ -94,7 +94,7 @@ app.post('/compose', function (req, res) {
 
   post.save(function (err) {
     if (!err) {
-      res.redirect('/index')
+      res.redirect('pages/index')
     }
   })
 })
